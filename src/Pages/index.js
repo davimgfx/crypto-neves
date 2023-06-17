@@ -1,3 +1,4 @@
 import HomePage from "./HomePage";
 import CoinPage from "./CoinPage";
-export { HomePage, CoinPage } 
+import Footer from "../components/Footer/Footer";
+export { HomePage, CoinPage, Footer } 
