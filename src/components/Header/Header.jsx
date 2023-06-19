@@ -57,7 +57,7 @@ const Header = () => {
             style={{
               width: 100,
               height: 40,
-              marginRigt: 15,
+              marginRight: 15,
               fontSize: 16,
             }}
             value={currency}

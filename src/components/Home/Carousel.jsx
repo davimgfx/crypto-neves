@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
@@ -28,18 +28,33 @@ const Carousel = () => {
     let profit = coin.price_change_percentage_24h >= 0;
     return (
       <Link to={`/coins/${coin.id}`}>
-        <img src={coin?.image} alt={coin.name} height="80" />
-        <span>
-          {coin?.symbol}
-          &nbsp;
-          <span>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "1rem",
+            color: "white",
+            textTransform: "uppercase",
+          }}>
+          <img src={coin?.image} alt={coin.name} height="80" />
+
+          <Typography sx={{
+            fontSize: "16px",
+            color: profit > 0 ? "#00ff22" : "#ff0000", 
+            fontWeight: "bold"       
+          }} >
+            {coin?.symbol}
+            &nbsp;
             {profit && "+"}
             {coin?.price_change_percentage_24h?.toFixed(2)}%
-          </span>
-        </span>
-        <span sx={{ fontSize: 22, fontWeight: 500 }}>
-          {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
-        </span>
+          </Typography>
+          <Typography sx={{
+            fontSize: "24px"
+          }}>{symbol} {numberWithCommas(coin?.current_price.toFixed(2))}</Typography>
+  
+        </Box>
       </Link>
     );
   });
