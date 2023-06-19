@@ -1,8 +1,16 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
+import Carousel from "./Carousel";
 const Banner = () => {
   return (
-    <Container>
+    <Container
+      sx={{
+        marginTop: "-10rem",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        height: "100vh",
+      }}>
       <Typography
         sx={{
           fontSize: { xl: "100px", md: "80px", sm: "60px", xs: "32px" },
@@ -11,11 +19,10 @@ const Banner = () => {
           color: "transparent",
           fontWeight: "bold",
           paddingTop: 5,
-          textAlign: "center"
+          textAlign: "center",
         }}>
         TRACK AND TRADE
       </Typography>
-
       <Typography
         sx={{
           fontSize: { xl: "100px", md: "80px", sm: "60px", xs: "32px" },
@@ -24,10 +31,11 @@ const Banner = () => {
           WebkitBackgroundClip: "text",
           color: "transparent",
           fontWeight: "bold",
-          textAlign: "center"
+          textAlign: "center",
         }}>
         CRYPTO CURRENCIES
       </Typography>
+      <Carousel />
     </Container>
   );
 };

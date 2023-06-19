@@ -4,8 +4,7 @@ const HomePage = () => {
   return (
     <div>
       <Banner />
-      <Carousel />
-    </div>
+         </div>
   );
 };
 
