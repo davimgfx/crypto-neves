@@ -22,15 +22,7 @@ const Header = () => {
         cursor: "pointer",
         fontFamily: "Heebo",
       },
-      breakpoints: {
-        values: {
-          xs: 0,
-          sm: 600,
-          md: 900,
-          lg: 1200,
-          xl: 1536,
-        },
-      },
+      
     },
   });
 
@@ -51,7 +43,12 @@ const Header = () => {
             theme={themeLogo}
             variant="title"
             onClick={handleLinkClick}
-            >
+            sx={{
+              background: `linear-gradient(to right, #ffdd00, #a88100)`,
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+            }}>
             Crypto Neves
           </Typography>
 

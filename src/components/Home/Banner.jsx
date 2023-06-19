@@ -6,6 +6,9 @@ const Banner = () => {
       <Typography
         sx={{
           fontSize: { xl: "100px", md: "80px", sm: "60px", xs: "32px" },
+          background: `linear-gradient(to right, #ffffff, #bdbdbd)`,
+          backgroundClip: "text",
+          color: "transparent",
           fontWeight: "bold",
           paddingTop: 5,
           textAlign: "center"
