@@ -1,3 +1,4 @@
 import Header from "./Header/Header.jsx"
 import Footer from "./Footer/Footer.jsx"
-export { Header, Footer}
+import Banner from "./Home/Banner.jsx"
+export { Header, Footer, Banner}
