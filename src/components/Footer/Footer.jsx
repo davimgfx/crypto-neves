@@ -106,7 +106,7 @@ const Footer = () => {
         <Box >
           <Typography
             sx={{
-              marginTop: "2rem",
+              marginTop: "4rem",
               fontSize: "22px",
               fontWeight: "bold",
             }}>
