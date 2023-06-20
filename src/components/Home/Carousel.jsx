@@ -40,16 +40,30 @@ const Carousel = () => {
           }}>
           <img src={coin?.image} alt={coin.name} height="80" />
 
-          <Typography sx={{
-            fontSize: "16px",
-            color: profit > 0 ? "#00ff22" : "#ff0000", 
-            fontWeight: "bold"       
-          }} >
-            {coin?.symbol}
-            &nbsp;
-            {profit && "+"}
-            {coin?.price_change_percentage_24h?.toFixed(2)}%
-          </Typography>
+          <Box sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "1rem"
+          }}>
+            <Typography sx={{
+              fontSize: "16px",
+            
+              fontWeight: "bold"
+            }} >
+              {coin?.symbol}
+              </Typography>
+              <Typography sx={{
+              fontSize: "12px",
+              color: profit > 0 ? "#00ff22" : "#ff0000",
+              fontWeight: "bold"
+            }}>
+                &nbsp;
+                {profit && "+"}
+                {coin?.price_change_percentage_24h?.toFixed(2)}%
+              </Typography>
+          </Box>
+       
           <Typography sx={{
             fontSize: "24px"
           }}>{symbol} {numberWithCommas(coin?.current_price.toFixed(2))}</Typography>
@@ -61,11 +75,14 @@ const Carousel = () => {
 
   const responsive = {
     0: {
-      items: 2,
+      items: 1,
     },
     512: {
-      items: 4,
+      items: 2,
     },
+    800: {
+      items: 4,
+    }
   };
 
   return (

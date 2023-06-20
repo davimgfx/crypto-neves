@@ -28,7 +28,6 @@ const Header = () => {
 
   // Link logo
   const handleLinkClick = () => {
-    console.log("Link clicado!");
     window.location.href = "/";
   };
 
@@ -44,7 +43,7 @@ const Header = () => {
             variant="title"
             onClick={handleLinkClick}
             sx={{
-              background: `linear-gradient(to right, #ffdd00, #a88100)`,
+              background: `linear-gradient(to right, #ff00aa, #a8007e)`,
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               color: "transparent",
