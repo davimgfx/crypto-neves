@@ -16,12 +16,13 @@ import React, { useEffect, useState } from "react";
 import { CryptoState } from "../../CryptoContext";
 import { CoinList } from "../../config/api";
 
+
 const CoinsTable = () => {
   const [coins, SetCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
 
-  const { currency } = CryptoState();
+  const { currency, symbol } = CryptoState();
 
   const fetchCoins = async () => {
     setLoading(true);
@@ -149,6 +150,13 @@ const CoinsTable = () => {
                           <Typography>{row.name}</Typography>
                         </Box>
                       </Box>
+                    </TableCell>
+                    <TableCell sx={{
+                              textAlign: "left",
+                              fontSize: "22px",
+                              textTransform: "uppercase",
+                            }}>
+                      {symbol} 
                     </TableCell>
                   </TableRow>
                 );
