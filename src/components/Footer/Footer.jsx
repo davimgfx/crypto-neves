@@ -17,6 +17,7 @@ const Footer = () => {
       sx={{
         marginTop: 15,
         borderTop: "1px solid",
+
       }}>
       <Container
         sx={{
@@ -24,7 +25,6 @@ const Footer = () => {
           justifyContent: "center",
           alignItems: "center",
           gap: "3rem",
-          flexDirection: { xs: "column", md: "row" },
           flexWrap: "wrap",
           marginX: "auto",
         }}>

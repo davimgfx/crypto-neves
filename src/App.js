@@ -10,8 +10,8 @@ const App = () => {
     palette: {
       mode: "dark",
       background: {
-        paper: "#14161a",
-        default: "#14161a",
+        paper: "#14161A",
+        default: "#14161A",
       },
     },
     typography: {

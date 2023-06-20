@@ -38,37 +38,41 @@ const Carousel = () => {
             color: "white",
             textTransform: "uppercase",
           }}>
-            
           <img src={coin?.image} alt={coin.name} height="80" />
 
-          <Box sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "1rem"
-          }}>
-            <Typography sx={{
-              fontSize: "16px",
-            
-              fontWeight: "bold"
-            }} >
-              {coin?.symbol}
-              </Typography>
-              <Typography sx={{
-              fontSize: "12px",
-              color: profit > 0 ? "#00ff22" : "#ff0000",
-              fontWeight: "bold"
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "1rem",
             }}>
-                &nbsp;
-                {profit && "+"}
-                {coin?.price_change_percentage_24h?.toFixed(2)}%
-              </Typography>
+            <Typography
+              sx={{
+                fontSize: "16px",
+
+                fontWeight: "bold",
+              }}>
+              {coin?.symbol}
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "12px",
+                color: profit > 0 ? "#00ff22" : "#ff0000",
+                fontWeight: "bold",
+              }}>
+              &nbsp;
+              {profit && "+"}
+              {coin?.price_change_percentage_24h?.toFixed(2)}%
+            </Typography>
           </Box>
-       
-          <Typography sx={{
-            fontSize: "24px"
-          }}>{symbol} {numberWithCommas(coin?.current_price.toFixed(2))}</Typography>
-  
+
+          <Typography
+            sx={{
+              fontSize: "24px",
+            }}>
+            {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
+          </Typography>
         </Box>
       </Link>
     );
@@ -83,7 +87,7 @@ const Carousel = () => {
     },
     800: {
       items: 4,
-    }
+    },
   };
 
   return (

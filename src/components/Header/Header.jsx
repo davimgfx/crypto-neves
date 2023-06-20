@@ -21,7 +21,6 @@ const Header = () => {
         cursor: "pointer",
         fontFamily: "Heebo",
       },
-      
     },
   });
 
@@ -34,7 +33,10 @@ const Header = () => {
   const { currency, setCurrency } = CryptoState();
 
   return (
-    <AppBar color="transparent" position="static">
+    <AppBar
+      position="fixed"
+
+      >
       <Container>
         <Toolbar>
           <Typography

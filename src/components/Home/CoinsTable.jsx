@@ -2,6 +2,7 @@ import {
   Box,
   Container,
   LinearProgress,
+  Pagination,
   Table,
   TableBody,
   TableCell,
@@ -16,12 +17,15 @@ import React, { useEffect, useState } from "react";
 import { CryptoState } from "../../CryptoContext";
 import { CoinList } from "../../config/api";
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 const CoinsTable = () => {
   const [coins, SetCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
-
+  const [page, setPage] = useState(1);
   const { currency, symbol } = CryptoState();
 
   const fetchCoins = async () => {
@@ -83,7 +87,8 @@ const CoinsTable = () => {
         }}
         label="Search For a Crypto Currency..."
         variant="outlined"
-        onChange={(e) => setSearch(e.target.value)}></TextField>
+        onChange={(e) => setSearch(e.target.value)}
+        ></TextField>
 
       <TableContainer>
         {loading ? (
@@ -97,7 +102,7 @@ const CoinsTable = () => {
           <Table sx={{ marginTop: "3rem" }}>
             <TableHead
               sx={{
-                background: `linear-gradient(to right, #90CAF9, #51728d)`,
+                background: `linear-gradient(to right, #6e9bc0, #51728d)`,
               }}>
               <TableRow>
                 {["Coins", "Price", "24h Change", "Market Cap"].map((head) => (
@@ -111,13 +116,17 @@ const CoinsTable = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {handleSearch().map((row) => {
+              {handleSearch().slice((page - 1) * 10, (page - 1) * 10 + 10).map((row) => {
                 const profit = row.price_change_percentage_24h > 0;
                 return (
                   <TableRow
                     key={row.name}
                     onClick={() => handleLinkClick(row.id)}
-                    sx={{ cursor: "pointer" }}>
+                    sx={{ cursor: "pointer",
+                            "&:hover" : {
+                              backgroundColor: "#90caf936"
+                            }
+                     }}>
                     <TableCell
                       component="th"
                       scope="row"
@@ -129,7 +138,7 @@ const CoinsTable = () => {
                           textAlign: "center",
                           flexDirection: "row",
                           gap: "2rem",
-                          marginRight: "2rem"
+                          marginRight: "2rem",
                         }}>
                         <img
                           src={row?.image}
@@ -142,7 +151,7 @@ const CoinsTable = () => {
                           <Typography
                             sx={{
                               textAlign: "left",
-                              fontSize: "24px",
+                              fontSize: "22px",
                               textTransform: "uppercase",
                             }}>
                             {row.symbol}
@@ -151,12 +160,29 @@ const CoinsTable = () => {
                         </Box>
                       </Box>
                     </TableCell>
+                    <TableCell
+                      sx={{
+                        textAlign: "center",
+                        fontSize: "18px",
+                        textTransform: "uppercase",
+                      }}>
+                      {symbol} {numberWithCommas(row.current_price.toFixed(2))}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontSize: "18px",
+                        color: profit > 0 ? "#00ff22" : "#ff0000",
+                        fontWeight: "bold",
+                        textAlign: "center"
+                      }}>
+                        {profit && "+"}
+                          {row.price_change_percentage_24h.toFixed(2)}%
+                    </TableCell>
                     <TableCell sx={{
-                              textAlign: "left",
-                              fontSize: "22px",
-                              textTransform: "uppercase",
-                            }}>
-                      {symbol} 
+                      textAlign: "center",
+                      fontSize: "18px"
+                    }}>
+                      {symbol} {numberWithCommas(row.market_cap.toString().slice(0, -6))}
                     </TableCell>
                   </TableRow>
                 );
@@ -165,6 +191,25 @@ const CoinsTable = () => {
           </Table>
         )}
       </TableContainer>
+
+      <Pagination 
+      sx={{
+        padding: 5,
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        color: "white",
+        "& .MuiPaginationItem-root": {
+          color: "#7DB0D9"
+        }
+      }}
+      count={(handleSearch()?.length/10)}
+      size="large"
+      onChange={(_, value) => {
+        setPage(value)
+      
+      }}
+      />
     </Container>
   );
 };
