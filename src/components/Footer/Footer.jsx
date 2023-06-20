@@ -23,7 +23,7 @@ const Footer = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          gap: "5rem",
+          gap: "3rem",
           flexDirection: { xs: "column", md: "row" },
           flexWrap: "wrap",
           marginX: "auto",
@@ -46,7 +46,7 @@ const Footer = () => {
             and Trading Opportunities Unlock the Potential of Cryptocurrencies
             with Crypto Neves
           </Typography>
-          <Typography sx={{ marginTop: "2rem", fontSize: "18px" }}>
+          <Typography sx={{ marginTop: "1rem", fontSize: "18px" }}>
             Privacy Policy | © 2023 Crypto Neves
           </Typography>
         </Box>
