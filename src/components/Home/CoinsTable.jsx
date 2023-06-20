@@ -43,7 +43,7 @@ const CoinsTable = () => {
   };
 
   const handleLinkClick = (id) => (window.location.href = `/coins/${id}`);
-  
+
   return (
     <Container
       sx={{
@@ -93,7 +93,10 @@ const CoinsTable = () => {
           />
         ) : (
           <Table sx={{ marginTop: "3rem" }}>
-            <TableHead>
+            <TableHead
+              sx={{
+                background: "linear-gradient(to right, #ff00aa, #a800a0)",
+              }}>
               <TableRow>
                 {["Coins", "Price", "24h Change", "Market Cap"].map((head) => (
                   <TableCell
@@ -111,7 +114,22 @@ const CoinsTable = () => {
                 return (
                   <TableRow
                     key={row.name}
-                    onClick={handleLinkClick(row.id)}></TableRow>
+                    onClick={() => handleLinkClick(row.id)}>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      styles={{
+                        display: "flex",
+                        gap: 15,
+                      }}>
+                      <img
+                        src={row?.image}
+                        alt={row.name}
+                        height="50"
+                        sx={{ marginBotoom: 10 }}
+                      />
+                    </TableCell>
+                  </TableRow>
                 );
               })}
             </TableBody>
