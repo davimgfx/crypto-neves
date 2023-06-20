@@ -16,7 +16,6 @@ const Header = () => {
     typography: {
       title: {
         flex: 1,
-        color: "#e5ff00",
         fontSize: 22,
         fontWeight: "bold",
         cursor: "pointer",
@@ -43,7 +42,7 @@ const Header = () => {
             variant="title"
             onClick={handleLinkClick}
             sx={{
-              background: `linear-gradient(to right, #ff00aa, #a8007e)`,
+              background: `linear-gradient(to right, #90CAF9, #51728d)`,
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               color: "transparent",

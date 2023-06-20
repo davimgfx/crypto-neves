@@ -26,7 +26,7 @@ const Banner = () => {
       <Typography
         sx={{
           fontSize: { xl: "100px", md: "80px", sm: "60px", xs: "32px" },
-          background: `linear-gradient(to right, #ff00aa, #a800a0)`,
+          background: `linear-gradient(to right, #90CAF9, #51728d)`,
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           color: "transparent",

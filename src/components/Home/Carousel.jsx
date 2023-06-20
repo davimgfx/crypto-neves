@@ -38,6 +38,7 @@ const Carousel = () => {
             color: "white",
             textTransform: "uppercase",
           }}>
+            
           <img src={coin?.image} alt={coin.name} height="80" />
 
           <Box sx={{

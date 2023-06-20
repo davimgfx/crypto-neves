@@ -1,4 +1,5 @@
 import {
+  Box,
   Container,
   LinearProgress,
   Table,
@@ -38,7 +39,7 @@ const CoinsTable = () => {
     return coins.filter(
       (coin) =>
         coin.name.toLowerCase().includes(search) ||
-        coin.symbol.toLowerCae().includes(search)
+        coin.symbol.toLowerCase().includes(search)
     );
   };
 
@@ -48,7 +49,7 @@ const CoinsTable = () => {
     <Container
       sx={{
         marginTop: "10rem",
-        height: "100vh",
+        height: "auto",
         textAlign: "center",
       }}>
       <Typography
@@ -65,7 +66,7 @@ const CoinsTable = () => {
       <Typography
         sx={{
           fontSize: { xl: "90px", md: "70px", sm: "50px", xs: "22px" },
-          background: `linear-gradient(to right, #ff00aa, #a800a0)`,
+          background: `linear-gradient(to right, #90CAF9, #51728d)`,
           backgroundClip: "text",
           color: "transparent",
           fontWeight: "bold",
@@ -87,7 +88,7 @@ const CoinsTable = () => {
         {loading ? (
           <LinearProgress
             sx={{
-              background: "linear-gradient(to right, #ff00aa, #a800a0)",
+              background: `linear-gradient(to right, #90CAF9, #51728d)`,
               marginTop: "1px",
             }}
           />
@@ -95,7 +96,7 @@ const CoinsTable = () => {
           <Table sx={{ marginTop: "3rem" }}>
             <TableHead
               sx={{
-                background: "linear-gradient(to right, #ff00aa, #a800a0)",
+                background: `linear-gradient(to right, #90CAF9, #51728d)`,
               }}>
               <TableRow>
                 {["Coins", "Price", "24h Change", "Market Cap"].map((head) => (
@@ -114,20 +115,40 @@ const CoinsTable = () => {
                 return (
                   <TableRow
                     key={row.name}
-                    onClick={() => handleLinkClick(row.id)}>
+                    onClick={() => handleLinkClick(row.id)}
+                    sx={{ cursor: "pointer" }}>
                     <TableCell
                       component="th"
                       scope="row"
-                      styles={{
-                        display: "flex",
-                        gap: 15,
-                      }}>
-                      <img
-                        src={row?.image}
-                        alt={row.name}
-                        height="50"
-                        sx={{ marginBotoom: 10 }}
-                      />
+                      sx={{ display: "flex", justifyContent: "center" }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "start",
+                          textAlign: "center",
+                          flexDirection: "row",
+                          gap: "2rem",
+                          marginRight: "2rem"
+                        }}>
+                        <img
+                          src={row?.image}
+                          alt={row.name}
+                          height="50"
+                          width="50"
+                          sx={{ margin: "auto" }}
+                        />
+                        <Box>
+                          <Typography
+                            sx={{
+                              textAlign: "left",
+                              fontSize: "24px",
+                              textTransform: "uppercase",
+                            }}>
+                            {row.symbol}
+                          </Typography>
+                          <Typography>{row.name}</Typography>
+                        </Box>
+                      </Box>
                     </TableCell>
                   </TableRow>
                 );
