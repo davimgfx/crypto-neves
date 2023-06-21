@@ -15,6 +15,7 @@
 - Alice Carousel  
 - Axios
 - React html parser
+- React-chartjs-2
 
 ## Screenshots of the Project
 
