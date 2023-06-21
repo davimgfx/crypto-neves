@@ -10,10 +10,11 @@
 
 ### Build with:
 
-- React JS <br>
-- Material UI v5 <br>
-- Alice Carousel   <br>
+- React JS 
+- Material UI v5 
+- Alice Carousel  
 - Axios
+- React html parser
 
 ## Screenshots of the Project
 
