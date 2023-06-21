@@ -100,6 +100,7 @@ const CoinsTable = () => {
               color: "transparent",
               marginTop: "1px",
             }}
+            size={250}
           />
         ) : (
           <Table sx={{ marginTop: "3rem" }}>

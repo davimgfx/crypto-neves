@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 import { SingleCoin } from "../config/api";
-import { CoinInfo } from "../components"
 
 const CoinPage = () => {
   const { id } = useParams();
@@ -25,7 +24,7 @@ const CoinPage = () => {
   }, []);
 
   const newDescription = Parser(
-    String(coin?.description.en.split(". ")[0]) + "."
+    String(coin?.description.en.split(". ")[0]) + ". " + String(coin?.description.en.split(". ")[1]) + "."
   );
 
   function numberWithCommas(x) {
@@ -42,7 +41,7 @@ const CoinPage = () => {
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             color: "transparent",
-            marginTop: "7rem",
+            marginTop: "6.5rem",
           }}
         />
       </Box>
@@ -52,16 +51,19 @@ const CoinPage = () => {
     <Container
       sx={{
         marginTop: "12rem",
-        display: "flex"
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}>
       <Box
         sx={{
-          paddingX: "2rem",
-          width: "40rem",
+         
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          borderRight: "2px solid white",
+          justifyContent: "center",
+         
         }}>
         <img src={coin?.image.large} height={150} />
         <Typography
@@ -81,6 +83,9 @@ const CoinPage = () => {
             textAlign: "center",
             fontSize: "16px",
             textDecoration: "none",
+            maxWidth: "40rem",
+            textDecorationColor: "none",
+           
           }}>
           {newDescription}
         </Typography>
@@ -129,7 +134,6 @@ const CoinPage = () => {
           </Typography>
         </Box>
       </Box> 
-      <CoinInfo />
     </Container>
   );
 };
