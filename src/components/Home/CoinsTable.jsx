@@ -59,7 +59,7 @@ const CoinsTable = () => {
       }}>
       <Typography
         sx={{
-          fontSize: { xl: "90px", md: "70px", sm: "50px", xs: "22px" },
+          fontSize: { xl: "90px", md: "70px", sm: "50px", xs: "30px" },
           background: `linear-gradient(to right, #ffffff, #bdbdbd)`,
           backgroundClip: "text",
           color: "transparent",
@@ -70,7 +70,7 @@ const CoinsTable = () => {
       </Typography>
       <Typography
         sx={{
-          fontSize: { xl: "90px", md: "70px", sm: "50px", xs: "22px" },
+          fontSize: { xl: "90px", md: "70px", sm: "50px", xs: "30px" },
           background: `linear-gradient(to right, #90CAF9, #E722E6)`,
           backgroundClip: "text",
           color: "transparent",
