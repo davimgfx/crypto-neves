@@ -30,12 +30,15 @@ html {
 }
 
 .image-whychoose{
-  width: 500px;
+  width: 300px;
 }
 
 /* Estilizando a imagem */
 @media (max-width: 1035px){
   .animation-card{
+    display: none;
+  }
+  .image-whychoose{
     display: none;
   }
 }

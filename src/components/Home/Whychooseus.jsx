@@ -20,46 +20,42 @@ const Whychooseus = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        gap: "2rem",
+        gap: "2rem", 
+        marginTop: "5rem"
       }}>
-      <Box sx={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
-        <Typography
-          sx={{
-            fontSize: { xl: "90px", md: "70px", sm: "50px", xs: "22px" },
-            background: `linear-gradient(to right, #ffffff, #bdbdbd)`,
-            backgroundClip: "text",
-            color: "transparent",
-            fontWeight: "bold",
-            textAlign: "center",
-          }}>
-          Why Choose
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: { xl: "90px", md: "70px", sm: "50px", xs: "22px" },
-            background: `linear-gradient(to right, #90CAF9, #E722E6)`,
-            backgroundClip: "text",
-            color: "transparent",
-            fontWeight: "bold",
-            textAlign: "center",
-          }}>
-          US
-        </Typography>
-      </Box>
+      <Typography
+        sx={{
+          fontSize: { xl: "90px", md: "70px", sm: "50px", xs: "22px" },
+          background: `linear-gradient(to right, #90CAF9, #E722E6)`,
+          backgroundClip: "text",
+          color: "transparent",
+          fontWeight: "bold",
+          textAlign: "center",
+        }}>
+        Why Choose Us
+      </Typography>
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xl: "row", xs: "column" },
+          flexDirection: { md: "row", xs: "column" },
           justifyContent: "center",
           alignItems: "center",
         }}>
-        <Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}>
           <Box
-            width={"300px"}
+            width={"350px"}
             height={"150px"}
             sx={{
-              border: "1px solid white",
-              margin: "2rem",
+            
+              display: "flex",
+              alignItems: "center",
+              gap: "2rem",
+              padding: "1rem",
             }}>
             <Wallet
               sx={{
@@ -69,13 +65,34 @@ const Whychooseus = () => {
                 background: "linear-gradient(to right, #80b4df, #df25df)",
                 borderRadius: "5rem",
               }}></Wallet>
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  color: "white",
+                  fontWeight: "bold",
+                }}>
+                Connect Your Wallet
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  color: "#dadada",
+                  fontWeight: "bold",
+                }}>
+                Use Trust Wallet, Metamask or to connect to the app.
+              </Typography>
+            </Box>
           </Box>
           <Box
-            width={"300px"}
+            width={"350px"}
             height={"150px"}
             sx={{
-              border: "1px solid white",
-              margin: "2rem",
+             
+              display: "flex",
+              alignItems: "center",
+              gap: "2rem",
+              padding: "1rem",
             }}>
             <DesignServices
               sx={{
@@ -85,13 +102,34 @@ const Whychooseus = () => {
                 background: "linear-gradient(to right, #80b4df, #df25df)",
                 borderRadius: "5rem",
               }}></DesignServices>
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  color: "white",
+                  fontWeight: "bold",
+                }}>
+                Select Your Quantity
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  color: "#dadada",
+                  fontWeight: "bold",
+                }}>
+                Use Trust Wallet, Metamask or to connect to the app.
+              </Typography>
+            </Box>
           </Box>
           <Box
-            width={"300px"}
+            width={"350px"}
             height={"150px"}
             sx={{
-              border: "1px solid white",
-              margin: "2rem",
+             
+              display: "flex",
+              alignItems: "center",
+              gap: "2rem",
+              padding: "1rem",
             }}>
             <Bolt
               sx={{
@@ -101,34 +139,83 @@ const Whychooseus = () => {
                 background: "linear-gradient(to right, #80b4df, #df25df)",
                 borderRadius: "5rem",
               }}></Bolt>
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  color: "white",
+                  fontWeight: "bold",
+                }}>
+                Speed Market
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  color: "#dadada",
+                  fontWeight: "bold",
+                }}>
+                Our team help you to don't waste time. Fast transitions
+              </Typography>
+            </Box>
           </Box>
         </Box>
-        <Box item xs={4}>
+        <Box sx={{
+          display: {sm: "flex", xs: "none" }
+        }}>
           <img src={img1} alt="" className="image-whychoose" />
         </Box>
-        <Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}>
           <Box
-            width={"300px"}
+            width={"350px"}
             height={"150px"}
             sx={{
-              border: "1px solid white",
-              margin: "2rem",
+            
+              display: "flex",
+              alignItems: "center",
+              gap: "2rem",
+              padding: "1rem",
             }}>
-            <SatelliteAlt
+            <Wallet
               sx={{
                 color: "white",
                 fontSize: 75,
                 padding: "1.5rem",
                 background: "linear-gradient(to right, #80b4df, #df25df)",
                 borderRadius: "5rem",
-              }}></SatelliteAlt>
+              }}></Wallet>
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  color: "white",
+                  fontWeight: "bold",
+                }}>
+                Connect Your Wallet
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  color: "#dadada",
+                  fontWeight: "bold",
+                }}>
+                Use Trust Wallet, Metamask or to connect to the app.
+              </Typography>
+            </Box>
           </Box>
           <Box
-            width={"300px"}
+            width={"350px"}
             height={"150px"}
             sx={{
-              border: "1px solid white",
-              margin: "2rem",
+              
+              display: "flex",
+              alignItems: "center",
+              gap: "2rem",
+              padding: "1rem",
             }}>
             <Discount
               sx={{
@@ -138,13 +225,34 @@ const Whychooseus = () => {
                 background: "linear-gradient(to right, #80b4df, #df25df)",
                 borderRadius: "5rem",
               }}></Discount>
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  color: "white",
+                  fontWeight: "bold",
+                }}>
+                Receive Extra Discounts
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  color: "#dadada",
+                  fontWeight: "bold",
+                }}>
+                We give a lot a of discount information for you.
+              </Typography>
+            </Box>
           </Box>
           <Box
-            width={"300px"}
+            width={"350px"}
             height={"150px"}
             sx={{
-              border: "1px solid white",
-              margin: "2rem",
+             
+              display: "flex",
+              alignItems: "center",
+              gap: "2rem",
+              padding: "1rem",
             }}>
             <Quiz
               sx={{
@@ -154,6 +262,24 @@ const Whychooseus = () => {
                 background: "linear-gradient(to right, #80b4df, #df25df)",
                 borderRadius: "5rem",
               }}></Quiz>
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  color: "white",
+                  fontWeight: "bold",
+                }}>
+                Support 24 hours
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  color: "#dadada",
+                  fontWeight: "bold",
+                }}>
+                Feel free to ask any question at any time.
+              </Typography>
+            </Box>
           </Box>
         </Box>
       </Box>

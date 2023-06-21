@@ -1,11 +1,12 @@
 import React from "react";
-import { Banner, CoinsTable, Whychooseus  } from "../components";
+import { Banner, CoinsTable, Whychooseus, MoreInfos  } from "../components";
 const HomePage = () => {
   return (
     <div>
       <Banner />
       <CoinsTable/>
       <Whychooseus />
+      <MoreInfos />
     </div>
   );
 };

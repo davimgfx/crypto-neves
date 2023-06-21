@@ -4,4 +4,5 @@ import Banner from "./Home/Banner.jsx"
 import Carousel from "./Home/Carousel.jsx";
 import CoinsTable from "./Home/CoinsTable.jsx";
 import Whychooseus from "./Home/Whychooseus.jsx";
-export { Header, Footer, Banner, Carousel, CoinsTable, Whychooseus  } 
+import MoreInfos from "./Home/MoreInfos.jsx";
+export { Header, Footer, Banner, Carousel, CoinsTable, Whychooseus, MoreInfos  } 
