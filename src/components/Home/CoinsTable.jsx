@@ -71,7 +71,7 @@ const CoinsTable = () => {
       <Typography
         sx={{
           fontSize: { xl: "90px", md: "70px", sm: "50px", xs: "22px" },
-          background: `linear-gradient(to right, #90CAF9, #51728d)`,
+          background: `linear-gradient(to right, #90CAF9, #E722E6)`,
           backgroundClip: "text",
           color: "transparent",
           fontWeight: "bold",
@@ -94,7 +94,10 @@ const CoinsTable = () => {
         {loading ? (
           <LinearProgress
             sx={{
-              background: `linear-gradient(to right, #90CAF9, #51728d)`,
+              background: "linear-gradient(90deg, rgba(144,202,249,1) 50%, rgba(231,34,230,1) 30%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
               marginTop: "1px",
             }}
           />
@@ -102,7 +105,9 @@ const CoinsTable = () => {
           <Table sx={{ marginTop: "3rem" }}>
             <TableHead
               sx={{
-                background: `linear-gradient(to right, #6e9bc0, #51728d)`,
+                background: "linear-gradient(90deg, rgba(144,202,249,1) 0%, rgba(231,34,230,1) 48%)",
+           
+
               }}>
               <TableRow>
                 {["Coins", "Price", "24h Change", "Market Cap"].map((head) => (
@@ -124,7 +129,7 @@ const CoinsTable = () => {
                     onClick={() => handleLinkClick(row.id)}
                     sx={{ cursor: "pointer",
                             "&:hover" : {
-                              backgroundColor: "#90caf936"
+                              background: `linear-gradient(to right, #314657, #581058)`
                             }
                      }}>
                     <TableCell

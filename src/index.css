@@ -17,3 +17,37 @@
 html {
   font-size: 62.5%;
 }
+
+@keyframes moveUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(50px); }
+  100% { transform: translateY(0); }
+}
+
+/* Estilizando a imagem */
+.animation-card {
+  animation: moveUpDown 2s linear infinite;
+}
+
+.image-whychoose{
+  width: 500px;
+}
+
+/* Estilizando a imagem */
+@media (max-width: 1035px){
+  .animation-card{
+    display: none;
+  }
+}
+
+@media (max-width: 900px){
+  .image-whychoose{
+    width: 300px;
+  }
+}
+
+@media (max-width: 400px){
+  .image-whychoose{
+    width: 100%;
+  }
+}

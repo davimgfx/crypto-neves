@@ -1,10 +1,11 @@
 import React from "react";
-import { Banner, CoinsTable } from "../components";
+import { Banner, CoinsTable, Whychooseus  } from "../components";
 const HomePage = () => {
   return (
     <div>
       <Banner />
       <CoinsTable/>
+      <Whychooseus />
     </div>
   );
 };

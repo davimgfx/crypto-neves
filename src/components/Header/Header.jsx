@@ -44,7 +44,7 @@ const Header = () => {
             variant="title"
             onClick={handleLinkClick}
             sx={{
-              background: `linear-gradient(to right, #90CAF9, #51728d)`,
+              background: "linear-gradient(90deg, rgba(144,202,249,1) 0%, rgba(231,34,230,1) 48%)",
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               color: "transparent",
