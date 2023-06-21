@@ -180,14 +180,14 @@ const Whychooseus = () => {
               gap: "2rem",
               padding: "1rem",
             }}>
-            <Wallet
+            <SatelliteAlt
               sx={{
                 color: "white",
                 fontSize: 75,
                 padding: "1.5rem",
                 background: "linear-gradient(to right, #80b4df, #df25df)",
                 borderRadius: "5rem",
-              }}></Wallet>
+              }}></SatelliteAlt>
             <Box>
               <Typography
                 sx={{
@@ -195,7 +195,7 @@ const Whychooseus = () => {
                   color: "white",
                   fontWeight: "bold",
                 }}>
-                Connect Your Wallet
+                Receive Extra NFTs
               </Typography>
               <Typography
                 sx={{
@@ -232,7 +232,7 @@ const Whychooseus = () => {
                   color: "white",
                   fontWeight: "bold",
                 }}>
-                Receive Extra Discounts
+                Receive Discounts
               </Typography>
               <Typography
                 sx={{

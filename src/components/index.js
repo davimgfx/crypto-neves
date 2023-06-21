@@ -5,4 +5,5 @@ import Carousel from "./Home/Carousel.jsx";
 import CoinsTable from "./Home/CoinsTable.jsx";
 import Whychooseus from "./Home/Whychooseus.jsx";
 import MoreInfos from "./Home/MoreInfos.jsx";
-export { Header, Footer, Banner, Carousel, CoinsTable, Whychooseus, MoreInfos  } 
+import CoinInfo from "./CoinsPages/CoinInfo.jsx";
+export { Header, Footer, Banner, Carousel, CoinsTable, Whychooseus, MoreInfos, CoinInfo} 
