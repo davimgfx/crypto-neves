@@ -1,7 +1,7 @@
 import { Tab, Tabs, Typography, Backdrop, Box, Button, Fade, Modal } from "@mui/material";
 import {useState} from "react";
 import Login from "./Login";
-import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 const style = {
   position: "absolute",
   top: "50%",
@@ -75,7 +75,7 @@ export default function AuthModal() {
               }}/>
             </Tabs>
             { value === 0 && <Login handleClose={handleClose}/>}
-            { value === 1 && <SignIn handleClose={handleClose}/>}
+            { value === 1 && <SignUp handleClose={handleClose}/>}
           </Box>
         </Fade>
       </Modal>

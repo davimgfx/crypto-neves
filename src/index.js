@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import App from "./App.js";
 import { HomePage, CoinPage } from "./Pages";
+import { AlertMessage } from "./components";
 import CryptoContext from "./CryptoContext";
 const router = createBrowserRouter([
   {

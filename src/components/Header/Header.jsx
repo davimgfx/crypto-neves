@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { CryptoState } from "../../CryptoContext";
 import AuthModal from "../Authentication/AuthModal";
-
+import UserSidebar from "../Authentication/UserSidebar";
 const Header = () => {
   //Theme
   const themeLogo = createTheme({
@@ -30,8 +30,8 @@ const Header = () => {
     window.location.href = "/";
   };
 
-  // Change type of coin
-  const { currency, setCurrency } = CryptoState();
+  // Change type of coin and user
+  const { currency, setCurrency, user } = CryptoState();
 
   return (
     <AppBar
@@ -52,7 +52,7 @@ const Header = () => {
             }}>
             Crypto Neves
           </Typography>
-          <AuthModal />
+          { user ? <UserSidebar/> : <AuthModal />}
           <Select
             variant="outlined"
             style={{

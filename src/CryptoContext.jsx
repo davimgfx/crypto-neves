@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { CoinList } from "./config/api";
-
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./config/firebase";
 const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
@@ -16,6 +17,14 @@ const CryptoContext = ({ children }) => {
     type: "success"
   });
   
+  useEffect(( ) => {
+    onAuthStateChanged(auth, user => {
+      if(user) setUser(user);
+      else setUser(null)
+    })
+  }, [])
+
+
   useEffect(() => {
     if (currency === "BRL") setSymbol("R$");
     else if (currency === "USD") setSymbol("$");
@@ -30,7 +39,7 @@ const CryptoContext = ({ children }) => {
   };
 
   return (
-    <Crypto.Provider value={{ currency, setCurrency, symbol, coins, loading, fetchCoins, alert, setAlert }}>
+    <Crypto.Provider value={{ currency, setCurrency, symbol, coins, loading, fetchCoins, alert, setAlert, user}}>
       {children}
     </Crypto.Provider>
   );
