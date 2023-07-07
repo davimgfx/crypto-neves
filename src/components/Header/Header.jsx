@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { CryptoState } from "../../CryptoContext";
+import AuthModal from "../Authentication/AuthModal";
 
 const Header = () => {
   //Theme
@@ -51,7 +52,7 @@ const Header = () => {
             }}>
             Crypto Neves
           </Typography>
-
+          <AuthModal />
           <Select
             variant="outlined"
             style={{

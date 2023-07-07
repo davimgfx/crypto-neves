@@ -22,23 +22,15 @@ function numberWithCommas(x) {
 }
 
 const CoinsTable = () => {
-  const [coins, SetCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
+  
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, coins, loading, fetchCoins } = CryptoState();
 
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-
-    SetCoins(data);
-    setLoading(false);
-  };
 
   useEffect(() => {
     fetchCoins();
-  }, []);
+  }, [currency]);
 
   const handleSearch = () => {
     return coins.filter(
