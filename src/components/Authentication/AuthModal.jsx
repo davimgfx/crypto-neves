@@ -1,5 +1,5 @@
 import { Tab, Tabs, Typography, Backdrop, Box, Button, Fade, Modal } from "@mui/material";
-import * as React from "react";
+import {useState} from "react";
 import Login from "./Login";
 import SignIn from "./SignIn";
 const style = {
@@ -20,8 +20,8 @@ const style = {
 };
 
 export default function AuthModal() {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState(0);
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(0);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleChange = (event, newValue) => {
@@ -74,8 +74,8 @@ export default function AuthModal() {
                 fontSize: "1.3rem"
               }}/>
             </Tabs>
-            { value === 0 && <Login />}
-            { value === 1 && <SignIn />}
+            { value === 0 && <Login handleClose={handleClose}/>}
+            { value === 1 && <SignIn handleClose={handleClose}/>}
           </Box>
         </Fade>
       </Modal>
