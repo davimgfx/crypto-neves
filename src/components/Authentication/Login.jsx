@@ -1,7 +1,8 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
-import {auth} from "../../config/firebase"
+import GoogleButton from "react-google-button";
+import { auth } from "../../config/firebase";
 
 const Login = ({ handleClose }) => {
   const [email, setEmail] = useState("");
@@ -15,10 +16,23 @@ const Login = ({ handleClose }) => {
       const result = await signInWithEmailAndPassword(auth, email, password);
       alert("Login Success");
       console.log(result);
-    } catch(error){
-      alert(error)
+    } catch (error) {
+      alert(error);
     }
     handleClose();
+  };
+
+  const googleProvider = new GoogleAuthProvider()
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        alert("Sucess Login");
+        handleClose();
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   return (
@@ -53,24 +67,15 @@ const Login = ({ handleClose }) => {
           onClick={handleSubmit}
           sx={{
             width: "auto",
-            height: 40,
+            height: 50,
             border: "1px solid #90CAF9",
             fontSize: "1.3rem",
           }}>
           Login
         </Button>
         <Typography>or</Typography>
-        <Button
-          onClick={handleClose}
-          sx={{
-            width: "auto",
-            height: 40,
 
-            border: "1px solid #90CAF9",
-            fontSize: "1.3rem",
-          }}>
-          Login with google
-        </Button>
+        <GoogleButton onClick={signInWithGoogle} />
       </Box>
     </Box>
   );

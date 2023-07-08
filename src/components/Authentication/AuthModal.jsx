@@ -1,5 +1,5 @@
-import { Tab, Tabs, Typography, Backdrop, Box, Button, Fade, Modal } from "@mui/material";
-import {useState} from "react";
+import { Backdrop, Box, Button, Fade, Modal, Tab, Tabs } from "@mui/material";
+import { useState } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
 const style = {
@@ -16,7 +16,6 @@ const style = {
   marginX: "auto",
   flexDirection: "column",
   gap: "2rem",
-
 };
 
 export default function AuthModal() {
@@ -55,27 +54,35 @@ export default function AuthModal() {
         }}>
         <Fade in={open}>
           <Box sx={style}>
-            <Tabs          
+            <Tabs
               textColor="secondary"
               indicatorColor="secondary"
               aria-label="secondary tabs example"
               value={value}
               sx={{
                 width: "auto",
-                marginX: "auto"
+                marginX: "auto",
               }}
               onChange={handleChange}>
-              <Tab value={0} label="Login" sx={{
-                width: 200,
-                fontSize: "1.3rem"
-              }} />
-              <Tab value={1} label="Sign Up" sx={{
-                width: 200,
-                fontSize: "1.3rem"
-              }}/>
+              <Tab
+                value={0}
+                label="Login"
+                sx={{
+                  width: 200,
+                  fontSize: "1.3rem",
+                }}
+              />
+              <Tab
+                value={1}
+                label="Sign Up"
+                sx={{
+                  width: 200,
+                  fontSize: "1.3rem",
+                }}
+              />
             </Tabs>
-            { value === 0 && <Login handleClose={handleClose}/>}
-            { value === 1 && <SignUp handleClose={handleClose}/>}
+            {value === 0 && <Login handleClose={handleClose} />}
+            {value === 1 && <SignUp handleClose={handleClose} />}
           </Box>
         </Fade>
       </Modal>
