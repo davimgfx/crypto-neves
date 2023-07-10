@@ -9,7 +9,8 @@ Welcome to Crypto Neves, your ultimate destination for all things cryptocurrency
 ### Build with:
 
 - React JS 
-- Material UI v5 
+- Material UI v5
+- Firebase
 - Alice Carousel  
 - Axios
 - React html parser
