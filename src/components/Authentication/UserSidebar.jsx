@@ -3,15 +3,15 @@ import Drawer from "@mui/material/Drawer";
 import { signOut } from "firebase/auth";
 import * as React from "react";
 import { CryptoState } from "../../CryptoContext";
-import { auth } from "../../config/firebase";
+import { auth, db } from "../../config/firebase";
+import { doc, setDoc } from "@firebase/firestore";
 
 export default function UserSidebar() {
-  const { user } = CryptoState();
+  const { user, watchlist, coins } = CryptoState();
   const [state, setState] = React.useState({
     right: false,
   });
-  console.log(user);
-  console.log(user.photoURL);
+  
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -25,6 +25,20 @@ export default function UserSidebar() {
 
   const logOut = () => {
     signOut(auth);
+  };
+
+  const removeToWatchList = async (coin) => {
+    const coinRef = doc(db, "watchlist", user.uid);
+    try {
+      await setDoc(
+        coinRef,
+        { coins: watchlist.filter((watch) => watch !== coin)},
+        { merge: true }
+      );
+      console.log(watchlist);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -66,7 +80,7 @@ export default function UserSidebar() {
                   width: 100,
                   height: 100,
                 }}
-                src={user?.photoURL}
+                src={user.photoURL}
               />
               <Typography
                 sx={{
@@ -85,14 +99,16 @@ export default function UserSidebar() {
                 sx={{
                   width: "100%",
                   backgroundColor: "grey",
-
-                  padding: 10,
+                  padding: 1,
+                  gap: "2rem",
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
-                  gap: 12,
                   overflowY: "scroll",
-                }}></Box>
+                }}>
+                {watchlist.map((watchlist) => (
+                  <Typography key={watchlist} onClick={() => removeToWatchList(watchlist)}>{watchlist}</Typography>
+                ))}
+              </Box>
             </Box>
           </Drawer>
         </React.Fragment>

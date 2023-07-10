@@ -1,30 +1,38 @@
-import { Box, Container, LinearProgress, Typography } from "@mui/material";
+import { doc, setDoc } from "@firebase/firestore";
+import {
+  Box,
+  Button,
+  Container,
+  LinearProgress,
+  Typography,
+} from "@mui/material";
 import axios from "axios";
 import Parser from "html-react-parser";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 import { SingleCoin } from "../config/api";
+import { db } from "../config/firebase";
 
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
-
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, user, watchlist, setWatchlist } = CryptoState();
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
     setCoin(data);
   };
 
-  console.log(coin);
-
   useEffect(() => {
     fetchCoin();
   }, []);
 
   const newDescription = Parser(
-    String(coin?.description.en.split(". ")[0]) + ". " + String(coin?.description.en.split(". ")[1]) + "."
+    String(coin?.description.en.split(". ")[0]) +
+      ". " +
+      String(coin?.description.en.split(". ")[1]) +
+      "."
   );
 
   function numberWithCommas(x) {
@@ -47,6 +55,35 @@ const CoinPage = () => {
       </Box>
     );
 
+  const inWatchList = watchlist.includes(coin?.id);
+
+  const addToWatchList = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
+    try {
+      await setDoc(
+        coinRef,
+        { coins: watchlist ? [...watchlist, coin?.id] : [coin?.id] },
+        { merge: true }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const removeToWatchList = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
+    try {
+      await setDoc(
+        coinRef,
+        { coins: watchlist.filter((watch) => watch !== coin?.id)},
+        { merge: true }
+      );
+      console.log(watchlist);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Container
       sx={{
@@ -58,12 +95,10 @@ const CoinPage = () => {
       }}>
       <Box
         sx={{
-         
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-         
         }}>
         <img src={coin?.image.large} height={150} />
         <Typography
@@ -85,7 +120,6 @@ const CoinPage = () => {
             textDecoration: "none",
             maxWidth: "40rem",
             textDecorationColor: "none",
-           
           }}>
           {newDescription}
         </Typography>
@@ -114,10 +148,10 @@ const CoinPage = () => {
               textDecoration: "none",
             }}>
             Current Price <br />
-            {symbol} 
-              {numberWithCommas(
-                coin?.market_data.current_price[currency.toLowerCase()]
-              )}
+            {symbol}
+            {numberWithCommas(
+              coin?.market_data.current_price[currency.toLowerCase()]
+            )}
           </Typography>
           <Typography
             sx={{
@@ -133,7 +167,24 @@ const CoinPage = () => {
             )}
           </Typography>
         </Box>
-      </Box> 
+        {user && (
+          <Button
+            sx={{
+              background:
+                "linear-gradient(90deg, rgba(144,202,249,1) 0%, rgba(231,34,230,1) 48%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+              fontSize: "1.3rem",
+              marginTop: "2rem",
+              border: "1px solid rgba(144,202,249,1)",
+              fontWeight: "bold",
+            }}
+            onClick={ inWatchList ? removeToWatchList : addToWatchList}>
+            {inWatchList ? "Remove from your list" : "Add to your list"}
+          </Button>
+        )}
+      </Box>
     </Container>
   );
 };
