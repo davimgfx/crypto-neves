@@ -1,4 +1,4 @@
-import { Backdrop, Box, Button, Fade, Modal, Tab, Tabs } from "@mui/material";
+import { Backdrop, Box, Button, Fade, Modal, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";

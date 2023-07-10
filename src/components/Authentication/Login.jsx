@@ -77,6 +77,7 @@ const Login = ({ handleClose }) => {
 
         <GoogleButton onClick={signInWithGoogle} />
       </Box>
+      <Typography>Test Account: test@test.com / test123</Typography>
     </Box>
   );
 };

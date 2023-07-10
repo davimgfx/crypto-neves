@@ -1,17 +1,17 @@
+import { doc, setDoc } from "@firebase/firestore";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { Avatar, Box, Button, Typography } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import { signOut } from "firebase/auth";
 import * as React from "react";
 import { CryptoState } from "../../CryptoContext";
 import { auth, db } from "../../config/firebase";
-import { doc, setDoc } from "@firebase/firestore";
-
 export default function UserSidebar() {
   const { user, watchlist, coins } = CryptoState();
   const [state, setState] = React.useState({
     right: false,
   });
-  
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -32,7 +32,7 @@ export default function UserSidebar() {
     try {
       await setDoc(
         coinRef,
-        { coins: watchlist.filter((watch) => watch !== coin)},
+        { coins: watchlist.filter((watch) => watch !== coin) },
         { merge: true }
       );
       console.log(watchlist);
@@ -106,7 +106,18 @@ export default function UserSidebar() {
                   overflowY: "scroll",
                 }}>
                 {watchlist.map((watchlist) => (
-                  <Typography key={watchlist} onClick={() => removeToWatchList(watchlist)}>{watchlist}</Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                    key={watchlist}>
+                    <Typography>{watchlist}</Typography>
+                    <DeleteIcon
+                      onClick={() => removeToWatchList(watchlist)}
+                      sx={{ cursor: "pointer" }}
+                    />
+                  </Box>
                 ))}
               </Box>
             </Box>
