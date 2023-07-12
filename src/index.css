@@ -33,6 +33,10 @@ html {
   width: 300px;
 }
 
+.gif-speed-up {
+  animation-duration: 0.2s;
+}
+
 /* Estilizando a imagem */
 @media (max-width: 1035px){
   .animation-card{

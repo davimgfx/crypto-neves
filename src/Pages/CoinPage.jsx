@@ -17,7 +17,18 @@ import { db } from "../config/firebase";
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
-  const { currency, symbol, user, watchlist, setWatchlist } = CryptoState();
+  const { currency, symbol, user, watchlist } = CryptoState();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetchDataWithDelay();
+  }, []);
+
+  const fetchDataWithDelay = () => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 2000);
+  };
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
@@ -167,7 +178,7 @@ const CoinPage = () => {
             )}
           </Typography>
         </Box>
-        {user && (
+        {user && loading && (
           <Button
             sx={{
               background:
