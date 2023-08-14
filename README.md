@@ -23,3 +23,6 @@ Welcome to Crypto Neves, your ultimate destination for all things cryptocurrency
 
 ### Coin page
 ![Coin_page](https://github.com/davimgfx/crypto-neves/assets/118557337/dad8f194-df92-4cbb-9009-d1a80f0f6b84)
+
+## Credits
+A create new features but the basic project is from A create new features but the basic project is from [Firebase 9 with React JS Tutorial 🔥🔥](https://www.youtube.com/watch?v=8NMJxyDwP6A&t=3573s&ab_channel=RoadsideCoder)
